@@ -35,7 +35,6 @@ if(mysqli_num_rows($run_query) > 0 )
        $address=$row["address"];
        $dd=$row["date"];
        $gid=$row["gid"];
-
     }
 
    }
@@ -69,7 +68,7 @@ header('Location:index.php');
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 700px;
+  max-width: 500px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -120,8 +119,8 @@ button:hover, a:hover {
   <h2><?php echo "City : $city"?></h2>
 
   
-  <p class="title"><?php echo "Assigned by : $first $second (id=$id)";?></p>
-  <p class="title"><?php echo "Registration-date/time : $dd";?></p>
+  <p class="title"><?php echo "Assigned by : $first $second";?></p>
+  <p class="title"><?php echo "Registration-date/time :";?><script type="text/javascript">document.write(new Date());</script></p>
   <p>GEU University</p>
   
   <p><SPAN STYLE="COLOR:Red">NOTE:This pass is valid for 5 hrs only</SPAN></p>

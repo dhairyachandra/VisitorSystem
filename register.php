@@ -104,8 +104,11 @@ button:hover {
 
 /* Add padding to container elements */
 .container {
+    margin-top: 20px;
+    border: none;
     padding: 16px;
     width:50%;
+    background-color: ghostwhite;
     
 
 }
@@ -155,19 +158,13 @@ li a:hover {
 </head>
 <body>
 
-<ul style="position:fixed; top:0px;">
-  <li><a href="destroy.php" title="logout">Guard : </a></li>
+<ul style="position:relative; top:0px;">
+  <li><a href="#" title="logout">Guard : </a></li>
   <li><a href="action.php" title="visitor info" target="_blank"><?php echo $f." ".$s; ?></a></li>
   <li><a>Date : <?php echo date("y-m-d"); ?></a></li>
+    <li style="margin-left: 65%;"><a href="destroy.php" title="logout">Logout</a></li>
      
     </ul>
-
-<BR>
-<BR>
-<br>
-<br>
-<br>
-
 
 
 
@@ -177,24 +174,37 @@ li a:hover {
     <h1>VISITOR PASS ENTRY</h1>
     
     <hr>
-
-    <label ><b >Full Name</b></label>
-    <input type="text" placeholder="Full name of visitor" name="name" required>
-
-    <label ><b>Contact Number</b></label>
-    <input type="text" placeholder="Enter Mobile Number" name="num" placeholder="^[0-9]{10}$" required>
-
-    <label ><b>City</b></label>
-    <input type="text" placeholder="Enter City" name="city" required>
-
-     <label ><b>Address</b></label>
-    <input type="text" placeholder="Enter Address" name="address" required>
-
     
+    <table>
+<tbody>
+<tr>
+<td style="width: 10%;">Full Name: </td>
+<td style="width: 70%;"><input type="text" placeholder="Full name of visitor" name="name" required></td>
+</tr>
+<tr>
+<td style="width: 10%;">Contact: </td>
+<td style="width: 70%;"><input type="text" placeholder="Enter Mobile Number" name="num" placeholder="^[0-9]{10}$" required></td>
+</tr>
+<tr>
+<td style="width: 10%;">Place: </td>
+<td style="width: 70%;"><input type="text" placeholder="Enter City" name="city" required></td>
+</tr>
+<tr>
+<td style="width: 10%;">Address: </td>
+<td style="width: 70%;"><input type="text" placeholder="Enter Address" name="address" required></td>
+</tr>
+<tr>
+<td style="width: 10%;">Purpose: </td>
+<td style="width: 70%;"><input type="text" placeholder="Purpose of visit" name="purpose" required></td>
+</tr>
+<tr>
+<td style="width: 10%;">Image: </td>
+<td style="width: 70%;"><input type="file" name="upfile" accept="images/*" required></td>
+</tr>
 
-    
 
-   <b>Image :<b> <input type="file" name="upfile" accept="images/*" required>
+</tbody>
+</table>
     
     <?php
        if(!empty($message)){echo $message;} ?>
@@ -205,7 +215,7 @@ li a:hover {
 
     <div class="clearfix">
       <button type="RESET" class="cancelbtn">Reset</button>
-      <button type="submit" class="signupbtn" name="submit">submit</button>
+        <a href='generate.php?f=$file_name' target=_blank><button type="submit" class="signupbtn" name="submit">Submit</button></a>
     </div>
   </div>
 </form>
