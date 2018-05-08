@@ -179,15 +179,19 @@ li a:hover {
     <table>
 <tbody>
 <tr>
-<td style="width: 10%;">Full Name: </td>
-<td style="width: 70%;"><input type="text" placeholder="Full name of visitor" name="name" required></td>
+<td style="width: 10%;">Student Name: </td>
+<td style="width: 70%;"><input type="text" placeholder="Full name of Student" name="name" required></td>
 </tr>
 <tr>
-<td style="width: 10%;">Contact: </td>
+<td style="width: 10%;">Father's Name: </td>
+<td style="width: 70%;"><input type="text" placeholder="Fathers name" name="fname" required></td>
+</tr>
+<tr>
+<td style="width: 30%;">Mobile No: </td>
 <td style="width: 70%;"><input type="text" placeholder="Enter Mobile Number" name="num" placeholder="^[0-9]{10}$" required></td>
 </tr>
 <tr>
-<td style="width: 10%;">Place: </td>
+<td style="width: 10%;">City: </td>
 <td style="width: 70%;"><input type="text" placeholder="Enter City" name="city" required></td>
 </tr>
 <tr>
@@ -201,6 +205,10 @@ li a:hover {
 <tr>
 <td style="width: 10%;">Image: </td>
 <td style="width: 70%;"><input type="file" name="upfile" accept="images/*" required></td>
+</tr>
+<tr>
+<td style="width: 10%;">Gates: </td>
+<td style="width: 70%;"><input type="radio" name="gate" value="Gate 1" required checked> Gate 1 <input type="radio" name="gate" value="Gate 2" required>Gate 2</td>
 </tr>
 
 
@@ -239,6 +247,8 @@ if(isset($_POST["submit"]))
 	$time=date("h:i:s",time());
 	$fn=$_FILES['upfile'] ['name'];
     $purpose=$_POST["purpose"];
+    $gate=$_POST["gate"];
+    $fname=$_POST["fname"];
 
 	
 	
@@ -255,7 +265,7 @@ if(isset($_POST["submit"]))
 		 	echo $file_name."is already exist.";
 		 }
 		 else
-		 {     $sql="INSERT INTO `visitor`(number,name,address,city,gid,file,purpose) VALUES ('$mobile','$name','$address','$city','$id','$file_name','$purpose')";
+		 {     $sql="INSERT INTO `visitor`(number,name,address,city,gid,file,purpose,gate,fname) VALUES ('$mobile','$name','$address','$city','$id','$file_name','$purpose','$gate','$fname')";
 		      $result=mysqli_query($con,$sql);
 
 		      if($result){
