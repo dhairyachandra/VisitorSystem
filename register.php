@@ -171,7 +171,8 @@ li a:hover {
 
 <form action="" style="border:1px solid #ccc" method="POST" enctype="multipart/form-data">
   <center><div class="container">
-    <h1>VISITOR PASS ENTRY</h1>
+   <img width="50%" height="50%" src="images/gl.png">
+    <h3>VISITOR PASS ENTRY</h3>
     
     <hr>
     
@@ -237,6 +238,7 @@ if(isset($_POST["submit"]))
 	$date=date("y-m-d");
 	$time=date("h:i:s",time());
 	$fn=$_FILES['upfile'] ['name'];
+    $purpose=$_POST["purpose"];
 
 	
 	
@@ -253,7 +255,7 @@ if(isset($_POST["submit"]))
 		 	echo $file_name."is already exist.";
 		 }
 		 else
-		 {     $sql="INSERT INTO `visitor`(number,name,address,city,gid,file) VALUES ('$mobile','$name','$address','$city','$id','$file_name')";
+		 {     $sql="INSERT INTO `visitor`(number,name,address,city,gid,file,purpose) VALUES ('$mobile','$name','$address','$city','$id','$file_name','$purpose')";
 		      $result=mysqli_query($con,$sql);
 
 		      if($result){
@@ -261,6 +263,8 @@ if(isset($_POST["submit"]))
 		 	   move_uploaded_file($_FILES["upfile"]["tmp_name"],$desired_dir.$file_name);
 		 	   echo "Data is SUCESSFULLY UPLOAD.";
                echo "<a href='generate.php?f=$file_name' target=_blank>GENERATE PASS</A>";
+                  
+                    
 
 		 	}
 		 	   else
